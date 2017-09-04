@@ -35,8 +35,11 @@ if ! is_valid_env_name ${ENVIRONMENT_NAME}; then echo "Invalid environment name.
 S3_BUCKET_NAME="${ENVIRONMENT_NAME}.wheninmustang.com"
 
 if [ ${ENVIRONMENT_NAME} == "prod" ]
-then    
+then
     ENVIRONMENT_NAME="production"
+    ember build --environment production
+else
+    ember build
 fi
 
 if [ ${ENVIRONMENT_NAME} == "production" ]
